@@ -317,6 +317,11 @@ if __name__=='__main__':
                            metavar='--attention_lambda',
                            type=str,
                            help='required to assign the contribution of the atention loss')
+
+    my_parser.add_argument('device',
+                            metavar="--device",
+                            type=str,
+                            help="Choose between cuda or cpu")
     
     
     
@@ -332,7 +337,7 @@ if __name__=='__main__':
     
     params['variance']=1
     params['num_classes']=3
-    params['device']='cpu'
+    params['device']=args.device
     fix_the_random(seed_val = params['random_seed'])
     params['class_names']=dict_data_folder[str(params['num_classes'])]['class_label']
     params['data_file']=dict_data_folder[str(params['num_classes'])]['data_file']
