@@ -191,6 +191,10 @@ def load_model(model, params, use_cuda=False):
 
 def save_normal_model(model, params):
     """Save model."""
+    base_pth = "Saved"
+    if not os.path.exists(base_pth):
+        os.makedirs(base_pth)
+        
     if(params['train_att']==True):
         if(params['att_lambda']>=1):
             params['att_lambda']=int(params['att_lambda'])
